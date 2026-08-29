@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+@import '@fontsource/fraunces/400.css';
+@import '@fontsource/fraunces/500.css';
+@import '@fontsource/fraunces/600.css';
+@import '@fontsource/fraunces/700.css';
+@import '@fontsource/fraunces/900.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/inter/800.css';
+@import '@fontsource/caveat/600.css';
+@import '@fontsource/caveat/700.css';
+
+/*
+ * Charte graphique "Challenge Halle Back" (section 35-37) :
+ * fête de village + rugby + tradition, jamais startup SaaS.
+ * Aplats, bordures franches, typographie forte — pas de glassmorphism,
+ * pas de gradients, pas de cartes à outrance.
+ */
+@theme {
+  --color-ink: #080d13;
+  --color-ink-soft: #10181f;
+  --color-terracotta: #844431;
+  --color-terracotta-dark: #5c2f21;
+  --color-terracotta-light: #a8623f;
+  --color-cream: #f3ebdd;
+  --color-cream-dim: #d9cdb8;
+  --color-gold: #d9a441;
+  --color-gold-dark: #a97a26;
+  --color-accent-red: #b5432e;
+
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-hand: 'Caveat', cursive;
+
+  --radius-card: 0.5rem;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+/* Zones tactiles confortables partout (section 49) */
+button,
+a,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-ink);
+}
+
+/* Confettis légers en CSS pour l'écran champions (section 27) */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.9;
+  }
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -10vh;
+  width: 0.5rem;
+  height: 1rem;
+  animation: confetti-fall linear forwards;
+}
